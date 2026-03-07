@@ -1,0 +1,324 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#111;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+}
+
+
+.web-frame {
+    width: 1600px;
+    height: 900px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    position: relative;
+    background-image: url("img/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 배경 */
+.container{
+    width:100%;
+    height:100%;
+    background-image:url('./img/background.png');
+    background-size:cover;
+    background-position:center;
+    position:relative;
+}
+
+/* icon */
+
+.icon{
+    position:absolute;
+    cursor:pointer;
+    transform:scale(0.95);   /* 전체 아이콘 크기 90% */
+    transform-origin:center;
+    transition:
+    transform 0.25s cubic-bezier(.22,1,.36,1),
+    filter 0.25s ease;
+}
+
+.icon:hover{
+    transform:scale(0.96) translateY(-3px);
+    filter:drop-shadow(0 3px 5px rgba(0,0,0,0.15));
+}
+
+.icon:hover{
+    transform:scale(1.06) translateY(-3px);
+    filter:drop-shadow(0 3px 5px rgba(0,0,0,0.15));
+    }
+
+/* icons */
+
+.icon2{
+    width:222px;
+    left:100px;
+    top:300px;
+}
+
+.icon1{
+    width:177px;
+    left:180px;
+    top:575px;
+}
+
+.icon4{
+    width:177px;
+    left:430px;
+    top:680px;
+}
+
+/* typo */
+.typo{
+    position:absolute;
+    width:37%;
+    left:54px;
+    top:58px;
+}
+
+/* message */
+.message{
+    position:absolute;
+    width:30%;
+    right:0;
+    top:0;
+}
+
+.message.show{
+    animation:messagePop 1.2s ease;
+}
+
+@keyframes messagePop{
+    0%{opacity:0;transform:translateY(-60px);}
+    40%{opacity:1;transform:translateY(10px);}
+    60%{transform:translateY(-5px);}
+    80%{transform:translateY(3px);}
+    100%{opacity:1;transform:translateY(0);}
+}
+
+/* popup */
+.popup{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.50);
+    justify-content:center;
+    align-items:center;
+}
+
+.popup-content{
+    background:white;
+    padding:40px;
+    top:7%;
+    left:16%;
+    border-radius:14px;
+    min-width:930px;
+    min-height:700px;
+    text-align:center;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:10px;
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* macOS style header */
+.popup-header{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:52px;
+    background:#f2f2f2;
+    border-top-left-radius:14px;
+    border-top-right-radius:14px;
+    display:flex;
+    align-items:center;
+    padding:0 16px;
+    box-sizing:border-box;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+}
+
+/* mac window buttons */
+.window-buttons{
+    display:flex;
+    gap:8px;
+}
+
+.btn{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    display:inline-block;
+}
+
+    .red{background:#ff5f57;}
+    .yellow{background:#febc2e;}
+    .green{background:#28c840;}
+
+/* title */
+.window-title{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:14px;
+    color:#666;
+}
+
+/* popup body */
+.popup-body{
+padding-top:60px;
+}
+
+
+
+/* chat */
+
+.chat{
+    position:absolute;
+    right:40px;
+    bottom:40px;
+    width:270px;
+    height:420px;
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(10px);
+    border-radius:22px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+.chat-header{
+    padding:15px;
+    background:white;
+    color: #0A84FF;
+    font-size:14px;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+}
+
+.chat-box{
+    flex:1;
+    padding:16px;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.chat-message{
+    position:relative;
+    margin-left:auto;
+    max-width:75%;
+    padding:10px 16px;
+    font-size:14px;
+    color:white;
+    background:#0A84FF;
+    border-radius:18px;
+    animation:messageStack .35s cubic-bezier(.22,1,.36,1);
+}
+
+.chat-message::after{
+    content:"";
+    position:absolute;
+    right:0;
+    bottom:4px;
+    width:12px;
+    height:12px;
+    background:#0A84FF;
+    border-bottom-left-radius:12px;
+    transform:rotate(85deg);
+}
+
+@keyframes messageStack{
+    0%{transform:translateY(12px) scale(.96);opacity:0;}
+    60%{transform:translateY(-2px) scale(1.02);}
+    100%{transform:translateY(0) scale(1);opacity:1;}
+}
+
+#chatInput{
+    border:none;
+    border-top:1px solid rgba(0,0,0,0.08);
+    padding:14px;
+    outline:none;
+}
+
+.emoji-panel{
+    position:absolute;
+    right:330px;     /* chat 왼쪽 위치 */
+    bottom:50px;
+    display:flex;
+    gap:10px;
+    padding:12px 16px;
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(10px);
+    border-radius:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+
+.emoji{
+    font-size:20px;
+    cursor:pointer;
+    transition:transform .2s ease;
+}
+
+.emoji:hover{
+    transform:scale(1.25);
+}
+
+.chat-input-area{
+    display:flex;
+    align-items:center;
+
+    border-top:1px solid rgba(0,0,0,0.08);
+    padding:7px;
+    background:white;
+}
+
+#chatInput{
+    flex:1;
+    border:none;
+    outline:none;
+    font-size:14px;
+    padding:10px;
+}
+
+#sendBtn{
+    width:30px;
+    height:30px;
+    border:none;
+    border-radius:50%;
+    background:#0A84FF;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:transform .15s ease, box-shadow .15s ease;
+}
+
+#sendBtn:hover{
+    transform:scale(1.05);
+    box-shadow:0 4px 10px rgba(10,132,255,0.4);
+}
