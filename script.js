@@ -115,3 +115,26 @@ popupImg.src = "./img/cont3.png";
 closeBtn.onclick = function(){
 popup.style.display = "none";
 }
+
+document.addEventListener("click", function(e){
+
+for(let i=0;i<6;i++){
+
+const p = document.createElement("div");
+p.className = "particle";
+
+const x = e.clientX + (Math.random()*20 - 10);
+const y = e.clientY + (Math.random()*20 - 10);
+
+p.style.left = x + "px";
+p.style.top = y + "px";
+
+document.body.appendChild(p);
+
+setTimeout(()=>{
+p.remove();
+},800);
+
+}
+
+});

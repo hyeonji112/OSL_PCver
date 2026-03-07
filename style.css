@@ -346,3 +346,34 @@ padding-top:60px;
     transform:scale(1.05);
     box-shadow:0 4px 10px rgba(10,132,255,0.4);
 }
+
+/* click particle */
+
+.particle{
+position:absolute;
+
+width:30px;
+height:30px;
+
+background:white;
+border-radius:50%;
+box-shadow:0 0 6px white;
+
+pointer-events:none;
+
+animation:particleFade 1s ease forwards;
+}
+
+@keyframes particleFade{
+
+0%{
+opacity:1;
+transform:scale(0.5) translateY(0);
+}
+
+100%{
+opacity:0;
+transform:scale(1.4) translateY(-20px);
+}
+
+}
