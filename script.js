@@ -86,3 +86,32 @@ if(e.key==="Enter"){
 sendMessage();
 }
 });
+
+
+
+
+const popupImg = document.getElementById("popupImage");
+const closeBtn = document.querySelector(".close");
+
+const icon1 = document.querySelector(".icon1");
+const icon2 = document.querySelector(".icon2");
+const icon3 = document.querySelector(".icon3");
+
+icon1.onclick = function(){
+popup.style.display = "flex";
+popupImg.src = "./img/cont1.png";
+}
+
+icon2.onclick = function(){
+popup.style.display = "flex";
+popupImg.src = "./img/cont2.png";
+}
+
+icon3.onclick = function(){
+popup.style.display = "flex";
+popupImg.src = "./img/cont3.png";
+}
+
+closeBtn.onclick = function(){
+popup.style.display = "none";
+}
